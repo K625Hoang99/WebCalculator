@@ -1,11 +1,5 @@
-//calculator program
-/*first we must get display element,
-    its id was [display] in this case
-
-*/
-
-
 const display = document.getElementById('display');
+let errorMessage, errorDivideMessage;
 
 /*
 we have three functions to create
@@ -16,11 +10,13 @@ another for clear display,
 and one for calculating.
 */
 
-function appendToDisplay(input){
+function appendToDisplay(input) {
     display.value += input;
+    hideErrorMessages();
 }
-function clearDisplay(){
+function clearDisplay() {
     display.value = ''; //in the tut he set it to an empty string, char prob same here
+    hideErrorMessages();
 }
 
 /*
@@ -34,12 +30,68 @@ lets surround this code with a try-catch block
 function calculate() {
     try {
         const result = eval(display.value);
-        if (result === undefined || isNaN(result)) {
-            display.value = 'INFINITE ERROR';
+        if (result === Infinity || result === -Infinity) {
+            display.value = 'Error';
+            showErrorMessage('divide');
+        } else if (isNaN(result)) {
+            display.value = 'Error';
+            showStandardErrorAnimation();
         } else {
-            display.value = eval(display.value);
+            display.value = result;
+            hideErrorMessages();
         }
     } catch (error) {
-        display.value = 'Error u messed up bro (︶︹︺)';
+        display.value = 'Error';
+        showErrorMessage('general');
     }
 }
+
+function showErrorMessage(type) {
+    if (type === 'divide') {
+        errorDivideMessage.classList.remove('hidden');
+        errorDivideMessage.classList.add('visible');
+    } else {
+        errorMessage.classList.remove('hidden');
+        errorMessage.classList.add('visible');
+    }
+}
+
+function hideErrorMessages() {
+    errorMessage.classList.remove('visible');
+    errorMessage.classList.add('hidden');
+    errorDivideMessage.classList.remove('visible');
+    errorDivideMessage.classList.add('hidden');
+}
+
+function showStandardErrorAnimation() {
+    fetch('ErrorAnimation-vanish.html')
+        .then(response => response.text())
+        .then(data => {
+            const errorContainer = document.createElement('div');
+            errorContainer.innerHTML = data;
+            document.body.appendChild(errorContainer);
+            setTimeout(() => {
+                document.body.removeChild(errorContainer);
+            }, 5000); // Remove the animation after it completes
+        });
+}
+
+// Load error messages from external HTML file
+fetch('error-messages.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('error-messages-container').innerHTML = data;
+        errorMessage = document.getElementById('error-message');
+        errorDivideMessage = document.getElementById('error-divide-message');
+    });
+
+// Adjust font size to fit the display
+display.addEventListener('input', function() {
+    const maxFontSize = 5; // in rem
+    const minFontSize = 1.5; // in rem
+    let fontSize = maxFontSize;
+    while (display.scrollWidth > display.clientWidth && fontSize > minFontSize) {
+        fontSize -= 0.1;
+        display.style.fontSize = fontSize + 'rem';
+    }
+});

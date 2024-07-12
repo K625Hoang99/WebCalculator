@@ -2,9 +2,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: hsl(0, 0%, 95%);
 }
 
@@ -19,6 +17,7 @@ ol {
     max-width: 500px;
     /*think like for long equations we want the symobls coming on the display to not get out*/
     overflow: hidden;
+    margin-bottom: 50px; /* Add more space below the calculator */
 }
 
 #display {
@@ -73,3 +72,39 @@ button:active {
 .operator-btn:active {
     background-color: hsl(35, 100%, 75%);
 }
+
+#error-messages-container {
+    margin-top: 50px; /* Ensure enough space from the calculator */
+    width: 100%;
+    text-align: center;
+}
+
+#error-message, #error-divide-message {
+    font-size: 1.5rem;
+    color: red;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#error-message.visible, #error-divide-message.visible {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.art-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: shrinkAndVanish 5s forwards;
+}
+
+.ascii-art {
+    transform: scale(0.6); /* Shrink to 80% */
+    transform-origin: center; /* Set the transform origin to the top left corner */
+}
+
+
+
