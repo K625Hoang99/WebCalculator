@@ -1,0 +1,43 @@
+.container {
+    margin: 20px;
+}
+.step {
+    margin-bottom: 40px;
+}
+button {
+    margin: 10px;
+}
+.step1 button {
+    /* Basic button, no styles applied */
+}
+.step2 button {
+    width: 100px;
+    height: 100px;
+}
+.step3 button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+.step4 button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: none;
+}
+.step5 button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: none;
+    background-color: hsl(0, 0%, 77%);
+}
+pre {
+    background-color: #f6f8fa;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto;
+}
+code {
+    font-family: Consolas, "Courier New", Courier, monospace;
+}
