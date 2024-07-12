@@ -1,8 +1,5 @@
-ol {
-    margin-bottom: 20px; /* Add some space below the text */
-}
-body{
-    margin:0;
+body {
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,7 +7,12 @@ body{
     height: 100vh;
     background-color: hsl(0, 0%, 95%);
 }
-#calculator{
+
+ol {
+    margin-bottom: 20px; /* Add some space below the text */
+}
+
+#calculator {
     font-family: Arial, sans-serif;
     background-color: hsl(0, 0%, 15%);
     border-radius: 15px;
@@ -18,52 +20,56 @@ body{
     /*think like for long equations we want the symobls coming on the display to not get out*/
     overflow: hidden;
 }
-#display{
-    width:100%;
-    padding: 20%;
-    font-size: 5rem;
+
+#display {
+    width: 100%;
+    padding: 20px;
+    font-size: 3rem;
     text-align: left;
     border: none;
     background-color: hsl(0, 0%, 20%);
-    color:white;
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-#keys{
 
-    /*arrange button 1 by 1 by || 
-    keys become grid.png*/
-    display:grid;
+#keys {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     padding: 25px;
 }
 
-button{
-    width:100px;
+button {
+    width: 100px;
     height: 100px;
     border-radius: 50px;
-    border:none;
+    border: none;
     background-color: hsl(0, 0%, 77%);
-    color:white;
-    font-size:3rem;
+    color: white;
+    font-size: 3rem;
     font-weight: bold;
-
-    /* cursor becomes the clickable icon*/
+    /* cursor becomes the clickable icon */
     cursor: pointer;
 }
-button:hover{
+
+button:hover {
     background-color: hsl(0, 0%, 40%);
 }
 
-button:active{
+button:active {
     background-color: hsl(0, 0%, 50%);
 }
 
-.operator-btn{
+.operator-btn {
     background-color: hsl(35, 100%, 55%);
 }
-.operator-btn:hover{
+
+.operator-btn:hover {
     background-color: hsl(35, 100%, 65%);
 }
-.operator-btn:active{
+
+.operator-btn:active {
     background-color: hsl(35, 100%, 75%);
 }
