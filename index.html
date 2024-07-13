@@ -3,14 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cal-Cuuu-lay-tore</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="gameplay-quests">
+        <p>Gameplay 🗿:</p>
+        <ol>
+            <li>Calculator gaming <a href="https://www.youtube.com/watch?v=LqYkRphJFvo" target="_blank">If yall really need a tutorial on how to play 🗿🗿 </a></li>
+            <li>Press the numpad "7" and "+" and "=" for a surprise</li>
+            <li>Divide anything by 0, nothing bad will happen :)</li>
+        </ol>
+    </div>
+    <h5>Guide of the javascript
     <ol>
         <li>div has id of calculator</li>
         <li>and the display will only be readonly so no input will interfere</li>
+        <li>add more steps when i watch the video</li>
     </ol>
+</h5>
     <div id="calculator">
         <input id="display" readonly>
         <div id="keys">
@@ -31,11 +42,12 @@
             <button onclick="appendToDisplay('.')">.</button>
             <button onclick="calculate()">=</button>
             <button onclick="clearDisplay()" class="operator-btn">C</button>
+            <button onclick="calculateFactorial()" class="operator-btn">FACTORIAL</button>
         </div>
     </div>
 
     <div id="error-messages-container"></div>
 
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>
